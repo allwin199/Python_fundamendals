@@ -10,25 +10,8 @@ def valid_choice(player):
         return
 
 
-def options_chosen(val):
-    if val == 1:
-        return "Rock"
-    elif val == 2:
-        return "Paper"
-    elif val == 3:
-        return "Scissors"
-
-
 def user_won():
     print("\n🎉 You Won!")
-
-
-def python_won():
-    print("\n🐍 Python Won!")
-
-
-def tie():
-    print("\n👍 Tie!")
 
 
 def game_restart():
@@ -52,7 +35,6 @@ def guess_number(name="PlayerO"):
 
     game_count = 0
     player_wins = 0
-    python_wins = 0
 
     def valid_choice(player):
         if player not in ["1", "2", "3"]:
@@ -63,12 +45,6 @@ def guess_number(name="PlayerO"):
 
     def user_won():
         print("\n🎉 You Won!")
-
-    def python_won():
-        print("\n🐍 Python Won!")
-
-    def tie():
-        print("\n👍 Tie!")
 
     def game_restart():
         restart = input(
@@ -81,17 +57,18 @@ def guess_number(name="PlayerO"):
         while restart.lower() == "y":
             start_game()
         else:
-            sys.exit("\nGame Over!\n")
+            if __name__ == "__main__":
+                sys.exit("\nGame Over!\n")
+            else:
+                return
 
     def who_won(player, computer):
         nonlocal player_wins
-        nonlocal python_wins
         if player == computer:
             player_wins += 1
             user_won()
         else:
-            python_wins += 1
-            python_won()
+            print("Sorry, Better luck next time")
 
     def start_game():
 
@@ -119,10 +96,9 @@ def guess_number(name="PlayerO"):
 
         print(f"\n Games Played : {game_count}")
         print(f"\n Player Won : {player_wins}")
-        print(f"\n Python Won : {python_wins}")
 
         print(
-            f"\n Player Winning Percentage : {calculate_percentage(game_count, player_wins)}")
+            f"\n Player Winning Percentage : {calculate_percentage(game_count, player_wins)}%")
 
         print("\n--------------------")
 
