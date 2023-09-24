@@ -14,19 +14,6 @@ def user_won():
     print("\n🎉 You Won!")
 
 
-def game_restart():
-    restart = input("\nPlay Again? \n\npress 'Y' If not press 'Q' to quit : ")
-
-    if restart.lower() not in ["y", "q"]:
-        print("\nChoose 'Y' to play or 'Q' to quit")
-        game_restart()
-
-    while restart.lower() == "y":
-        start_game()
-    else:
-        sys.exit("\nGame Over!\n")
-
-
 def calculate_percentage(games_played, games_won):
     return round((games_won/games_played)*100, 2)
 
@@ -57,7 +44,7 @@ def guess_number(name="PlayerO"):
         while restart.lower() == "y":
             start_game()
         else:
-            if __name__ == "__main__":
+            if (__name__ == "__main__"):
                 sys.exit("\nGame Over!\n")
             else:
                 return

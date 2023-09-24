@@ -31,19 +31,6 @@ def tie():
     print("\n👍 Tie!")
 
 
-def game_restart():
-    restart = input("\nPlay Again? \n\npress 'Y' If not press 'Q' to quit : ")
-
-    if restart.lower() not in ["y", "q"]:
-        print("\nChoose 'Y' to play or 'Q' to quit")
-        game_restart()
-
-    while restart.lower() == "y":
-        start_game()
-    else:
-        sys.exit("\nGame Over!\n")
-
-
 def rock_paper_scissor(name="PlayerO"):
 
     game_count = 0
@@ -85,7 +72,10 @@ def rock_paper_scissor(name="PlayerO"):
         while restart.lower() == "y":
             start_game()
         else:
-            sys.exit("\nGame Over!\n")
+            if (__name__ == "__main__"):
+                sys.exit("\nGame Over!\n")
+            else:
+                return
 
     def who_won(player, computer):
         nonlocal player_wins
