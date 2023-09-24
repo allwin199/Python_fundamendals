@@ -122,15 +122,15 @@ def rock_paper_scissor():
 
         computer = int(computerChoice)
 
-        print("\nYou chose: " + options_chosen(player))
-        print("\nPython chose: " + options_chosen(computer))
+        print(f"\nYou chose: {options_chosen(player)}")
+        print(f"\nPython chose: {options_chosen(computer)}")
 
         game_count += 1
         who_won(player, computer)
 
-        print("\n Games Played : " + str(game_count))
-        print("\n Player Won : " + str(player_wins))
-        print("\n Python Won : " + str(python_wins))
+        print(f"\n Games Played : {str(game_count)}")
+        print(f"\n Player Won : {str(player_wins)}")
+        print(f"\n Python Won : {str(python_wins)}")
 
         print("\n--------------------")
 
