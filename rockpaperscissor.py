@@ -44,7 +44,7 @@ def game_restart():
         sys.exit("\nGame Over!\n")
 
 
-def rock_paper_scissor():
+def rock_paper_scissor(name="PlayerO"):
 
     game_count = 0
     player_wins = 0
@@ -108,8 +108,9 @@ def rock_paper_scissor():
     def start_game():
 
         nonlocal game_count
+        nonlocal name
 
-        options = "\nEnter...\n1 for Rock,\n2 for Paper,\n3 for Scissor:\n\n"
+        options = f"\n{name}, Please enter...\n1 for Rock,\n2 for Paper,\n3 for Scissor:\n\n"
         print(options)
 
         playerChoice = input("Select between 1 - 3 : ")
@@ -128,9 +129,9 @@ def rock_paper_scissor():
         game_count += 1
         who_won(player, computer)
 
-        print(f"\n Games Played : {str(game_count)}")
-        print(f"\n Player Won : {str(player_wins)}")
-        print(f"\n Python Won : {str(python_wins)}")
+        print(f"\n Games Played : {game_count}")
+        print(f"\n Player Won : {player_wins}")
+        print(f"\n Python Won : {python_wins}")
 
         print("\n--------------------")
 
@@ -139,5 +140,20 @@ def rock_paper_scissor():
     return start_game
 
 
-play = rock_paper_scissor()
-play()
+if __name__ == "__main__":
+
+    import argparse
+
+    parser = argparse.ArgumentParser(
+        description="Provides a personalized game experience"
+    )
+
+    parser.add_argument(
+        "-n", "--name", metavar="name",
+        required=True, help="The name of the person playing the game"
+    )
+
+    args = parser.parse_args()
+
+    play = rock_paper_scissor(args.name)
+    play()
