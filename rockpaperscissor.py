@@ -1,55 +1,65 @@
 import sys
 import random
 
-print("")
-options = "Enter...\n1 for Rock,\n2 for Paper,\n3 for Scissor:\n\n"
-print(options)
+def startGame():
 
-playerChoice = input("Select between 1 - 3 : " )
+    options = "\nEnter...\n1 for Rock,\n2 for Paper,\n3 for Scissor:\n\n"
+    print(options)
 
-player = int(playerChoice)
+    playerChoice = input("Select between 1 - 3 : " )
 
-if player < 1 or player > 3:
-    sys.exit("Invalid Input")
+    player = int(playerChoice)
 
-computerChoice = random.choice("123")
+    if player < 1 or player > 3:
+        sys.exit("Invalid Input")
 
-computer = int(computerChoice)
+    computerChoice = random.choice("123")
 
-def optionsChosen(val):
-    if val == 1:
-        return "Rock"
-    elif val == 2:
-        return "Paper"
-    elif val == 3:
-        return "Scissors"
+    computer = int(computerChoice)
 
-print("")
-print("You chose: " + optionsChosen(player))
-print("Python chose: " + optionsChosen(computer))
-print("")
+    def optionsChosen(val):
+        if val == 1:
+            return "Rock"
+        elif val == 2:
+            return "Paper"
+        elif val == 3:
+            return "Scissors"
 
-def userWon():
-    print("🎉 You Won!")
+    print("\nYou chose: " + optionsChosen(player))
+    print("\nPython chose: " + optionsChosen(computer))
 
-def pythonWon():
-    print("🐍 Python Won!")
+    def userWon():
+        print("\n🎉 You Won!")
 
-def tie():
-    print("👍 Tie!")
+    def pythonWon():
+        print("\n🐍 Python Won!")
+
+    def tie():
+        print("\n👍 Tie!")
 
 
-if player == computer : 
-    tie()
-elif player == 1 and computer == 3:
-    userWon()
-elif player == 2 and computer == 1: 
-    userWon()
-elif player == 3 and computer == 2:
-    userWon()
-else:
-    pythonWon()
+    if player == computer : 
+        tie()
+    elif player == 1 and computer == 3:
+        userWon()
+    elif player == 2 and computer == 1: 
+        userWon()
+    elif player == 3 and computer == 2:
+        userWon()
+    else:
+        pythonWon()
 
-print("")
+
+    print("\n--------------------")
+    restart = input("\nPlay Again? \n\npress 'Y' If not press  'N' : ")
+        
+    while restart.lower() == "y":
+        startGame()
+    else:
+        sys.exit("\nGame Over!\n")
+
+    
+startGame()
+
 
 
